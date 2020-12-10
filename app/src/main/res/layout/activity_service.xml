@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/crema">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="310dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/form"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/first"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/lblnoOrder"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="NO.ORDEN"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/boxnoOrder"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:gravity="center">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_below="@id/first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/lblpkCar"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="PLACA"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/boxpkCar"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:gravity="center">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/thirt"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_below="@id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/lblKm"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="KM SERV"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/boxKm"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="200582"
+            android:gravity="center">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fourth"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_below="@id/thirt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/lblImport"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="IMPORTE"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/boxImport"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="255250"
+            android:gravity="center">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/five"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_below="@id/fourth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/lblDate"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="FECHA"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/boxDate"
+            android:textColor="@color/negro"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="25/07/12"
+            android:gravity="center">
+        </EditText>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/sixth"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_marginTop="520dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        >
+        <Button
+            android:id="@+id/btnCreate"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="CREAR"
+            android:gravity="center"
+            >
+        </Button>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="ACTUALIZAR"
+            android:layout_marginLeft="5dp"
+            android:gravity="center">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/seven"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_below="@id/sixth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        >
+        <Button
+            android:id="@+id/btnDelete"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="BORRAR"
+            android:gravity="center"
+            >
+        </Button>
+
+        <Button
+            android:id="@+id/btn"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="RECUPERAR"
+            android:layout_marginLeft="5dp"
+            android:gravity="center">
+        </Button>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/eight"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_below="@id/seven"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        >
+
+        <Button
+            android:id="@+id/btnConsult"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="CONSUL"
+            android:gravity="center"
+            >
+        </Button>
+        <Button
+            android:id="@+id/btnClear"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:text="LIMPIAR"
+            android:gravity="center"
+            >
+        </Button>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
