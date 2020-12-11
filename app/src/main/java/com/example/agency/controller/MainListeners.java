@@ -8,14 +8,9 @@ import com.example.agency.view.MainActivity;
 
 public class MainListeners implements View.OnClickListener {
     MainActivity mainActivity;
-    CRUDActivity crudActivity;
 
     public MainListeners(MainActivity act){
         this.mainActivity = act;
-    }
-
-    public MainListeners(CRUDActivity act){
-        crudActivity = act;
     }
     @Override
     public void onClick(View evt) {
@@ -40,6 +35,7 @@ public class MainListeners implements View.OnClickListener {
             mainActivity.startActivity(ObjInt);
             return;
         }
+
 
     }
 
