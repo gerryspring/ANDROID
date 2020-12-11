@@ -3,30 +3,23 @@ package com.example.agency.view;
 import android.os.Bundle;
 
 import com.example.agency.R;
-import com.example.agency.controller.Listeners;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.agency.controller.MainListeners;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
    public Button btnCars,btnClients,btnServices,btnReports;
-   Listeners list;
+   MainListeners list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        list = new Listeners(this);
+        list = new MainListeners(this);
 
         btnCars = findViewById(R.id.btnCars);
         btnClients = findViewById(R.id.btnClients);
@@ -35,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnCars.setOnClickListener(list);
         btnClients.setOnClickListener(list);
+        btnServices.setOnClickListener(list);
 
 
     }
