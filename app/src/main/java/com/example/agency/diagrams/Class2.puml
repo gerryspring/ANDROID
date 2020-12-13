@@ -1,24 +1,23 @@
+
 @startuml
+
+
+package DB <<Database>> {
+   class DataBase extends SQLiteOpenHelper{
+   + onCreate   () : void
+   + onUpgrade() : void
+   }
+}
+
 class MainActivity{
-    # Conexion : {static} DataBase
-    # DB: {static} SQLiteDataBase
+    + Connection : DataBase
+    + DB: SQLiteDataBase
     + btnCars,btnClients,.. : Button
     - listeners : MainListeners
 
-    # onCreate() : void
+    + onCreate() : void
+    + startDB() : boolean
 }
-
-abstract class CRUD {
-# labels [] : String
-# source : String
-
-# setLabels : {abstract} void
-# setSource : {abstract} void
-# exec : {abstract} void
-+ getLabels [] : String
-
-}
-
 class CRUDActivity{
    + crud : CRUD
    - listeners : CRUDListeners
@@ -41,31 +40,33 @@ class ReportActivity{
 }
 
 
-class MainListeners {
-    + activity : MainActivity
-
-    + onClick() : void
-
-
-}
 class ConsultActivity{
     - viewGral : TextView
     + pos : String
 
     # onCreate () : void
 }
+abstract class CRUD {
+# labels [] : String
+# source : String
+
+# setLabels : {abstract} void
+# setSource : {abstract} void
+# exec : {abstract} void
++ getLabels [] : String
+
+}
+
+class MainListeners {
+    + activity : MainActivity
+
+    + onClick() : void
+
+}
 
 class CRUDListeners  {
    + activity : CRUDActivity
     + onClick() : void
-}
-
-
-package DB <<Database>> {
-   class DataBase extends SQLiteOpenHelper{
-   + onCreate   () : void
-   + onUpgrade() : void
-   }
 }
 
 class CRUDCar extends CRUD

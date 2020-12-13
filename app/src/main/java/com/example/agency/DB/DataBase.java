@@ -1,4 +1,4 @@
-package com.example.agency.model;
+package com.example.agency.DB;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

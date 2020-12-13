@@ -1,11 +1,8 @@
 package com.example.agency.model.CRUD;
 
-import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 
-import androidx.appcompat.app.AlertDialog;
-
-import com.example.agency.model.DataBase;
+import com.example.agency.DB.DataBase;
 import com.example.agency.view.CRUDActivity;
 
 public abstract class CRUD {
