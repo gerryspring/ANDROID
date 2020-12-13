@@ -1,6 +1,9 @@
 package com.example.agency.model.CRUD;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.agency.model.DataBase;
 import com.example.agency.view.CRUDActivity;
@@ -8,6 +11,7 @@ import com.example.agency.view.CRUDActivity;
 public abstract class CRUD {
   protected static DataBase Conexion;
   protected static SQLiteDatabase DB;
+
   protected String[] labels;
   protected String source;
 
@@ -33,8 +37,9 @@ public abstract class CRUD {
 
     protected abstract void setLabels();
     protected abstract  void setSource();
+
+    public abstract void exec(String cadena);
     public String[] getLabels(){
-        System.out.println("labels");
         return labels;
     }
 

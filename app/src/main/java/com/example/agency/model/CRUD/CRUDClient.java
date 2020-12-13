@@ -32,4 +32,9 @@ public class CRUDClient extends CRUD {
         source = "teamwork";
     }
 
+    @Override
+    public void exec(String cadena) {
+
+    }
+
 }

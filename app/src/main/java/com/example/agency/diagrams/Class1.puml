@@ -1,0 +1,90 @@
+@startuml
+
+
+abstract class CRUD {
+# Conexion : {static} DataBase
+# DB: {static} SQLiteDataBase
+# labels [] : String
+# source : String
+
+# setLabels : {abstract} void
+# setSource : {abstract} void
+# exec : {abstract} void
++ getLabels [] : String
+
+}
+
+class CRUDActivity{
+   + crud : CRUD
+   - listeners : CRUDListeners
+   + pos : String
+   + lb1,lb2,lb3.. : TextView
+   + box1,box2,box3 .. : EditText
+   + source : ImageView
+   + btn1,btn2,btn3.. : Button
+
+   # onCreate() : void
+   + setInterface() : void
+   + update() : void
+   + setup() : void
+   + createCar() : void
+   + getBox() : String
+}
+
+class MainActivity{
+    + btnCars,btnClients,.. : Button
+    - listeners : MainListeners
+
+    # onCreate() : void
+}
+
+class ReportActivity{
+
+}
+
+class MainListeners {
+    + activity : MainActivity
+
+    + onClick() : void
+
+}
+class ConsultActivity{
+    - viewGral : TextView
+    + pos : String
+
+    # onCreate () : void
+}
+
+class CRUDListeners  {
+   + activity : CRUDActivity
+    + onClick() : void
+}
+
+
+package DB <<Database>> {
+   class DataBase extends SQLiteOpenHelper{
+   + onCreate   () : void
+   + onUpgrade() : void
+   }
+}
+
+
+class CRUDCar extends CRUD
+class CRUDClient extends CRUD
+class CRUDService extends CRUD
+class CRUDActivity
+CRUD *-left DataBase
+CRUDActivity *--- CRUD
+CRUDActivity *- CRUDListeners
+MainActivity *--- MainListeners
+
+<>diamond1
+
+MainListeners - diamond1
+diamond1 -- CRUDActivity
+diamond1 - ReportActivity
+
+<>diamond2
+CRUDListeners - diamond2
+
+@enduml

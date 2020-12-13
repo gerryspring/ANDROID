@@ -7,34 +7,36 @@ import com.example.agency.view.CRUDActivity;
 import com.example.agency.view.MainActivity;
 
 public class MainListeners implements View.OnClickListener {
-    MainActivity mainActivity;
+    MainActivity activity;
 
     public MainListeners(MainActivity act){
-        this.mainActivity = act;
+        this.activity = act;
     }
     @Override
     public void onClick(View evt) {
 
-        if(evt == mainActivity.btnCars){
-            Intent ObjInt = new Intent(mainActivity, CRUDActivity.class);
+        if(evt == activity.btnCars){
+            Intent ObjInt = new Intent(activity, CRUDActivity.class);
             CRUDActivity.pos = "A";
-            mainActivity.startActivity(ObjInt);
+            activity.startActivity(ObjInt);
             return;
         }
 
-        if(evt == mainActivity.btnClients){
-            Intent ObjInt = new Intent(mainActivity, CRUDActivity.class);
+        if(evt == activity.btnClients){
+            Intent ObjInt = new Intent(activity, CRUDActivity.class);
             CRUDActivity.pos = "C";
-            mainActivity.startActivity(ObjInt);
+            activity.startActivity(ObjInt);
             return;
         }
 
-        if(evt == mainActivity.btnServices){
-            Intent ObjInt = new Intent(mainActivity, CRUDActivity.class);
+
+        if(evt == activity.btnServices){
+            Intent ObjInt = new Intent(activity, CRUDActivity.class);
             CRUDActivity.pos = "S";
-            mainActivity.startActivity(ObjInt);
+            activity.startActivity(ObjInt);
             return;
         }
+
 
 
     }

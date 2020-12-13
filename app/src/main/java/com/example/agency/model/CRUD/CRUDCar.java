@@ -1,5 +1,7 @@
 package com.example.agency.model.CRUD;
 
+import android.database.sqlite.SQLiteConstraintException;
+
 import com.example.agency.view.CRUDActivity;
 
 public  class CRUDCar extends CRUD {
@@ -20,16 +22,20 @@ public  class CRUDCar extends CRUD {
         labels[4] = "C.CLIENTE";
 
 }
-
     @Override
     protected void setSource() {
         source = "ic_car";
     }
 
-    public void setInterface(){
-
-
+    @Override
+    public void exec(String cadena) {
+        System.out.println(DB == null);
+        try {
+            DB.execSQL(cadena);
+        } catch (SQLiteConstraintException E) {
+            System.out.println("error");
+            return;
+        }
     }
-
 
 }

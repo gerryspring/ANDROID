@@ -23,4 +23,9 @@ public class CRUDService extends CRUD {
     protected void setSource() {
         source = "form";
     }
+
+    @Override
+    public void exec(String cadena) {
+
+    }
 }

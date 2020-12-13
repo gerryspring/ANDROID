@@ -1,31 +1,34 @@
 package com.example.agency.view;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.widget.Toolbar;
+
+import androidx.appcompat.app.AlertDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agency.R;
 import com.example.agency.controller.CRUDListeners;
-import com.example.agency.controller.MainListeners;
 import com.example.agency.model.CRUD.CRUD;
 import com.example.agency.model.CRUD.CRUDCar;
 import com.example.agency.model.CRUD.CRUDClient;
 import com.example.agency.model.CRUD.CRUDService;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 public class CRUDActivity extends AppCompatActivity {
 
-    CRUD crud;
+    CRUD Crud;
     CRUDListeners listeners;
     public static String pos = "";
 
    public TextView lbl1,lbl2,lbl3,lbl4,lbl5;
+   public EditText box1,box2,box3,box4,box5;
    public ImageView source;
-   public Button btnBack;
+   public Button btnBack,btnConsult,btnCreate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +47,21 @@ public class CRUDActivity extends AppCompatActivity {
         lbl4 = findViewById(R.id.lbl4);
         lbl5 = findViewById(R.id.lbl5);
 
-        btnBack = findViewById(R.id.btnBack);
+        box1 = findViewById(R.id.box1);
+        box2 = findViewById(R.id.box2);
+        box3 = findViewById(R.id.box3);
+        box4 = findViewById(R.id.box4);
+        box5 = findViewById(R.id.box5);
 
+        btnBack = findViewById(R.id.btnBack);
+        btnConsult = findViewById(R.id.btnConsult);
+        btnCreate = findViewById(R.id.btnCreate);
 
         source = findViewById(R.id.view);
         listeners = new CRUDListeners(this);
         btnBack.setOnClickListener(listeners);
+        btnConsult.setOnClickListener(listeners);
+        btnCreate.setOnClickListener(listeners);
         update();
     }
 
@@ -60,17 +72,17 @@ public class CRUDActivity extends AppCompatActivity {
     public void update(){
         switch (pos){
             case "A":
-                crud = new CRUDCar(this);
+                Crud = new CRUDCar(this);
                 System.out.println("CRUD DE CARROS");
                 source.setImageResource(R.drawable.ic_car);
                 break;
             case "C":
-                crud = new CRUDClient(this);
+                Crud = new CRUDClient(this);
                 System.out.println("CRUD DE CLIENTES");
                 source.setImageResource(R.drawable.teamwork);
                 break;
             case "S":
-                crud = new CRUDService(this);
+                Crud = new CRUDService(this);
                 System.out.println("CRUD DE SERVICIOS");
                 source.setImageResource(R.drawable.form);
                 break;
@@ -80,7 +92,7 @@ public class CRUDActivity extends AppCompatActivity {
     }
 
     public void setUp(){
-        String [] vector = crud.getLabels();
+        String [] vector = Crud.getLabels();
 
         for(int i = 0; i < vector.length; i++)
             System.out.println(vector[i]+ "_______________**************____________________________________*");
@@ -92,5 +104,39 @@ public class CRUDActivity extends AppCompatActivity {
         lbl5.setText(vector[4]);
 
 
+    }
+
+
+    public String getBox1() {
+        return box1.getText().toString();
+    }
+
+    public String getBox2() {
+        return box2.getText().toString();
+    }
+
+    public String getBox3() {
+        return box3.getText().toString();
+    }
+
+    public String getBox4() {
+        return box4.getText().toString();
+    }
+
+    public String getBox5() {
+        return box5.getText().toString();
+    }
+
+    public void createCar(String plate, String brand, String model, int year, int cvc) {
+        String cadena="INSERT INTO AUTOS (PLATE,BRAND,MODEL,YEAR,CVCLIENT) VALUES('" +plate + "','" + brand + "','"+model+"','"+year+"','" + cvc + "')" ;
+        try {
+            System.out.println("entre aki");
+            Crud.exec(cadena);
+        } catch (SQLiteConstraintException E){
+            AlertDialog Alerta = new AlertDialog.Builder(this).create();
+            Alerta.setMessage("se presentó una violación de integridad, se intentó grabar mas de una tupla con la misma placa");
+            Alerta.show();
+            return;
+        }
     }
 }

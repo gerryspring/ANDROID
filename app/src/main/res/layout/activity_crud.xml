@@ -36,13 +36,12 @@
 
         <EditText
             android:id="@+id/box1"
-            android:textColor="@color/negro"
-            android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="BOX1"
-            android:gravity="center">
-        </EditText>
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/negro"
+            android:textSize="25dp"></EditText>
 
     </LinearLayout>
 
@@ -72,7 +71,7 @@
             android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="BOX2"
+            android:text=""
             android:gravity="center">
         </EditText>
 
@@ -104,7 +103,7 @@
             android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="BOX3"
+            android:text=""
             android:gravity="center">
         </EditText>
 
@@ -136,7 +135,7 @@
             android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="BOX4"
+            android:text=""
             android:gravity="center">
         </EditText>
 
@@ -168,7 +167,7 @@
             android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="BOX5"
+            android:text=""
             android:gravity="center">
         </EditText>
 
