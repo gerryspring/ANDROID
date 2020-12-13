@@ -1,0 +1,96 @@
+
+@startuml
+package DB <<Database>> {
+
+   class DataBase extends SQLiteOpenHelper{
+   + onCreate   () : void
+   + onUpgrade() : void
+   }
+}
+
+class DBManager{
+   + Connection : DataBase
+   + DB: SQLiteDataBase
+
+   + startDB() : {static} boolean
+   + createCar() : {static} boolean
+}
+
+
+
+class MainActivity{
+    + btnCars,btnClients,.. : Button
+    - listeners : MainListeners
+
+    + onCreate() : void
+    + startDB() : boolean
+}
+class CRUDActivity{
+   + crud : CRUD
+   - listeners : CRUDListeners
+   + pos : String
+   + lb1,lb2,lb3.. : TextView
+   + box1,box2,box3 .. : EditText
+   + source : ImageView
+   + btn1,btn2,btn3.. : Button
+
+   # onCreate() : void
+   + setInterface() : void
+   + update() : void
+   + setup() : void
+   + getBox() : String
+}
+
+'class ReportActivity{
+'
+'}
+
+
+'class ConsultActivity{
+'    - viewGral : TextView
+'    + pos : String
+'
+'    # onCreate () : void
+'}
+abstract class CRUD {
+# labels [] : String
+# source : String
+
+# setLabels : {abstract} void
+# setSource : {abstract} void
++ getLabels [] : String
+
+}
+
+class MainListeners {
+    + activity : MainActivity
+
+    + onClick() : void
+
+}
+
+class CRUDListeners  {
+   + activity : CRUDActivity
+    + onClick() : void
+}
+
+class CRUDCar extends CRUD
+class CRUDClient extends CRUD
+class CRUDService extends CRUD
+
+
+DB -[hidden]-> DBManager
+DataBase -* DBManager
+DBManager -.> MainActivity
+MainActivity -l> DBManager
+
+MainActivity -[hidden]-> CRUDActivity
+DBManager <- CRUDActivity
+CRUDListeners -* CRUDActivity
+CRUDActivity *-- CRUD
+MainListeners -- MainActivity
+<>d1
+MainActivity -- d1
+d1 -l- CRUDActivity
+
+@enduml

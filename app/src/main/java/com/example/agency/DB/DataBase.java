@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DataBase extends SQLiteOpenHelper {
-    public static int VERSION =7;
+    public static int VERSION =8;
     public String sqlCreateCars = "CREATE TABLE AUTOS (PLATE TEXT PRIMARY KEY, BRAND TEXT,MODEL TEXT, YEAR INTEGER,CVCLIENT INTEGER)";
     public String sqlCreateClients ="CREATE TABLE CLIENTES (ID INTEGER PRIMARY KEY, NOMBRE TEXT, ESTADO TEXT, CIUDAD TEXT,COLONIA TEXT) ";
 

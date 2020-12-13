@@ -3,9 +3,7 @@ package com.example.agency.model.CRUD;
 import com.example.agency.view.CRUDActivity;
 
 public class CRUDService extends CRUD {
-    public CRUDService(CRUDActivity activity) {
-        super(activity);
-
+    public CRUDService() {
         setLabels();
         setSource();
     }
@@ -24,8 +22,4 @@ public class CRUDService extends CRUD {
         source = "form";
     }
 
-    @Override
-    public void exec(String cadena) {
-
-    }
 }

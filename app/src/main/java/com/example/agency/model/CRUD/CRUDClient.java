@@ -11,8 +11,7 @@ import com.example.agency.view.CRUDActivity;
 public class CRUDClient extends CRUD {
 
 
-    public CRUDClient(CRUDActivity activity) {
-        super(activity);
+    public CRUDClient() {
 
         setLabels();
         setSource();
@@ -32,9 +31,5 @@ public class CRUDClient extends CRUD {
         source = "teamwork";
     }
 
-    @Override
-    public void exec(String cadena) {
-
-    }
 
 }

@@ -72,17 +72,17 @@ public class CRUDActivity extends AppCompatActivity {
     public void update(){
         switch (pos){
             case "A":
-                Crud = new CRUDCar(this);
+                Crud = new CRUDCar();
                 System.out.println("CRUD DE CARROS");
                 source.setImageResource(R.drawable.ic_car);
                 break;
             case "C":
-                Crud = new CRUDClient(this);
+                Crud = new CRUDClient();
                 System.out.println("CRUD DE CLIENTES");
                 source.setImageResource(R.drawable.teamwork);
                 break;
             case "S":
-                Crud = new CRUDService(this);
+                Crud = new CRUDService();
                 System.out.println("CRUD DE SERVICIOS");
                 source.setImageResource(R.drawable.form);
                 break;
@@ -94,15 +94,17 @@ public class CRUDActivity extends AppCompatActivity {
     public void setUp(){
         String [] vector = Crud.getLabels();
 
-        for(int i = 0; i < vector.length; i++)
-            System.out.println(vector[i]+ "_______________**************____________________________________*");
-
         lbl1.setText(vector[0]);
         lbl2.setText(vector[1]);
         lbl3.setText(vector[2]);
         lbl4.setText(vector[3]);
         lbl5.setText(vector[4]);
 
+    }
+
+    public void create() {
+
+        CRUDCar cars = new CRUDCar();
 
     }
 
@@ -127,16 +129,4 @@ public class CRUDActivity extends AppCompatActivity {
         return box5.getText().toString();
     }
 
-    public void createCar(String plate, String brand, String model, int year, int cvc) {
-        String cadena="INSERT INTO AUTOS (PLATE,BRAND,MODEL,YEAR,CVCLIENT) VALUES('" +plate + "','" + brand + "','"+model+"','"+year+"','" + cvc + "')" ;
-        try {
-            System.out.println("entre aki");
-            Crud.exec(cadena);
-        } catch (SQLiteConstraintException E){
-            AlertDialog Alerta = new AlertDialog.Builder(this).create();
-            Alerta.setMessage("se presentó una violación de integridad, se intentó grabar mas de una tupla con la misma placa");
-            Alerta.show();
-            return;
-        }
-    }
 }

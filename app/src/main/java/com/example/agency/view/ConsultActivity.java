@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.agency.DB.DataBaseManager;
 import com.example.agency.R;
 
 public class ConsultActivity extends AppCompatActivity {
@@ -23,11 +24,10 @@ public class ConsultActivity extends AppCompatActivity {
 
 
     public void dothing(){
-      /*
         String cadena = "";
 
         cadena = "SELECT * FROM AUTOS ORDER BY YEAR";
-        Cursor c = DB.rawQuery(cadena, null);
+        Cursor c = DataBaseManager.DB.rawQuery(cadena, null);
         if (c.getCount() == 0) {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle("Recuperando ");
@@ -46,12 +46,12 @@ public class ConsultActivity extends AppCompatActivity {
             year = c.getInt(3);
             cvclient = c.getInt(4);
 
-            cars = plate+"\t"+brand+"\t"+model+"\t"+year+"\t"+cvclient+"\n";
+            cars += plate+"\t"+brand+"\t"+model+"\t"+year+"\t"+cvclient+"\n";
         }
 
         viewGral.setText(cars);
 
     }
-*/
+
     }
-}
+
