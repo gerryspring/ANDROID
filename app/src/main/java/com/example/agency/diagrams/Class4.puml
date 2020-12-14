@@ -109,7 +109,6 @@ class CRUDService extends CRUD{
 
 DataBase --* DBManager
 
-
 MAINActivity -- CRUDActivity
 CRUDActivity -l CONSULTActivity
 

@@ -22,6 +22,7 @@ public class DBManager {
         }
         DB = Connection.getWritableDatabase();
         if (DB == null) {
+
             AlertDialog Alerta = new AlertDialog.Builder(context).create();
             Alerta.setMessage("LA BD NO ESTÁ PREPARADA PARA LECTURA Y ESCRITURA");
             Alerta.show();
