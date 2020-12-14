@@ -1,22 +1,20 @@
 package com.example.agency.view;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.agency.DB.DataBaseManager;
+import com.example.agency.DB.DBManager;
 import com.example.agency.R;
-import com.example.agency.controller.MainListeners;
-import com.example.agency.DB.DataBase;
+import com.example.agency.listeners.MAINListeners;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MAINActivity extends AppCompatActivity {
 
    public Button btnCars,btnClients,btnServices,btnReports;
-   MainListeners list;
+   MAINListeners list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         if(!startDB())
             return;
 
-        list = new MainListeners(this);
+        list = new MAINListeners(this);
 
         btnCars = findViewById(R.id.btnCars);
         btnClients = findViewById(R.id.btnClients);
@@ -41,12 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean startDB(){
-        if(DataBaseManager.startDB(this))
+    private boolean startDB(){
+        if(DBManager.startDB(this))
             return true;
         else
             return false;
     }
+
+    public void startCrud(String type){
+        Intent ObjInt = new Intent(this, CRUDActivity.class);
+        CRUDActivity.pos = type;
+        startActivity(ObjInt);
+    }
+
 
 
 

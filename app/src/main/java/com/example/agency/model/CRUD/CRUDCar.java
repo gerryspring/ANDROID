@@ -1,22 +1,15 @@
 package com.example.agency.model.CRUD;
 
-import android.database.sqlite.SQLiteConstraintException;
-
-import androidx.appcompat.app.AlertDialog;
-
+import com.example.agency.DB.DBManager;
 import com.example.agency.view.CRUDActivity;
 
 public  class CRUDCar extends CRUD {
-    public String plate,brand,model;
-    int year,cvc;
 
     public CRUDCar() {
-
         setLabels();
         setSource();
     }
 
-    @Override
     public void setLabels() {
         labels[0] = "PLACA";
         labels[1] = "MARCA";
@@ -26,19 +19,13 @@ public  class CRUDCar extends CRUD {
 
 }
 
-  @Override
-    protected void setSource() {
+    public void setSource() {
         source = "ic_car";
     }
 
 
-    public void setData(String plate,String brand,String model,int year,int cvc){
-        this.plate = plate;
-        this.brand = brand;
-        this.model = model;
-        this.year  = year;
-        this.cvc = cvc;
-
+    public void create(CRUDActivity context) {
+        DBManager.createCar(boxes[0],boxes[1],boxes[2],Integer.parseInt(boxes[3]),Integer.parseInt(boxes[4]),context);
     }
 
 

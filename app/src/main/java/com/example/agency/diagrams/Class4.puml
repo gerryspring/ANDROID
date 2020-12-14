@@ -108,17 +108,14 @@ class CRUDService extends CRUD{
 
 
 DataBase --* DBManager
-DBManager -.> MAINActivity
-MAINActivity -l> DBManager
+
 
 MAINActivity -- CRUDActivity
-CRUDActivity -- CONSULTActivity
-DBManager <- CRUDActivity
+CRUDActivity -l CONSULTActivity
 
-CRUDListeners --* CRUDActivity
+
+CRUDListeners -l* CRUDActivity
 MainListeners -- MAINActivity
 
-CRUDActivity *- CRUD
-
-CONSULTActivity --> DBManager
+CRUDActivity *-- CRUD
 @enduml

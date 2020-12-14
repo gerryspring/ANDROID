@@ -1,18 +1,16 @@
 package com.example.agency.view;
 
-import android.database.sqlite.SQLiteConstraintException;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agency.R;
-import com.example.agency.controller.CRUDListeners;
+import com.example.agency.listeners.CRUDListeners;
 import com.example.agency.model.CRUD.CRUD;
 import com.example.agency.model.CRUD.CRUDCar;
 import com.example.agency.model.CRUD.CRUDClient;
@@ -25,6 +23,7 @@ public class CRUDActivity extends AppCompatActivity {
     CRUDListeners listeners;
     public static String pos = "";
 
+
    public TextView lbl1,lbl2,lbl3,lbl4,lbl5;
    public EditText box1,box2,box3,box4,box5;
    public ImageView source;
@@ -35,7 +34,6 @@ public class CRUDActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crud);
 
         setInterface();
-        setListeners();
 //        source.setImageResource(R.drawable.ic_car);
     }
 
@@ -63,10 +61,6 @@ public class CRUDActivity extends AppCompatActivity {
         btnConsult.setOnClickListener(listeners);
         btnCreate.setOnClickListener(listeners);
         update();
-    }
-
-    public void setListeners(){
-
     }
 
     public void update(){
@@ -103,11 +97,19 @@ public class CRUDActivity extends AppCompatActivity {
     }
 
     public void create() {
-
-        CRUDCar cars = new CRUDCar();
-
+        Crud.setBoxes(new String[]{getBox1(),getBox2(),getBox3(),getBox4(),getBox5()});
+        Crud.create(this);
     }
 
+    public void back(){
+        Intent ObjInt = new Intent(this, MAINActivity.class);
+        startActivity(ObjInt);
+    }
+    public void consult(){
+        Intent ObjInt = new Intent(this, CONSULTActivity.class);
+        CONSULTActivity.pos = pos;
+        startActivity(ObjInt);
+    }
 
     public String getBox1() {
         return box1.getText().toString();
@@ -128,5 +130,6 @@ public class CRUDActivity extends AppCompatActivity {
     public String getBox5() {
         return box5.getText().toString();
     }
+
 
 }

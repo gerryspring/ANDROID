@@ -1,13 +1,11 @@
 package com.example.agency.model.CRUD;
 
-import android.database.sqlite.SQLiteDatabase;
-
-import com.example.agency.DB.DataBase;
 import com.example.agency.view.CRUDActivity;
 
 public abstract class CRUD {
   protected String[] labels;
   protected String source;
+  protected String[] boxes;
 
 
     public CRUD(){
@@ -16,8 +14,13 @@ public abstract class CRUD {
 
     protected abstract void setLabels();
     protected abstract  void setSource();
+    public abstract void create(CRUDActivity context);
 
     public String[] getLabels(){
         return labels;
+    }
+
+    public void setBoxes(String [] fields){
+        boxes = fields;
     }
 }

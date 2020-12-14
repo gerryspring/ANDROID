@@ -1,4 +1,4 @@
 package com.example.agency.view;
 
-public class ReportActivity {
+public class REPORTActivity {
 }
