@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout
         android:layout_width="match_parent" android:layout_height="match_parent">
 
         <TableRow
@@ -12,32 +12,32 @@
 
             <TextView
                 android:id="@+id/lblPlaca"
-                android:layout_width="wrap_content"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
-                android:text="palca" />
+                 />
 
             <TextView
                 android:id="@+id/lblModelo"
-                android:layout_width="wrap_content"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
-                android:text="modelo" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                />
 
             <TextView
                 android:id="@+id/lblMarca"
-                android:layout_width="wrap_content"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
-                android:text="marca" />
+                />
 
             <TextView
                 android:id="@+id/lblYear"
-                android:layout_width="wrap_content"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
-                android:text="año" />
+              />
+            <TextView
+                android:id="@+id/lblcvc"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+              />
         </TableRow>
     </TableLayout>
 

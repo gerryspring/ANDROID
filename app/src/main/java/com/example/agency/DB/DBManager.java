@@ -64,7 +64,7 @@ public class DBManager {
             return;
         }
 
-        String cars = "",plate,brand,model;
+        String plate,brand,model;
         int year,cvclient;
 
         while(c.moveToNext()){

@@ -17,10 +17,10 @@ import com.example.agency.DB.DBManager;
 import com.example.agency.R;
 import com.example.agency.model.Car;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class CONSULTActivity extends AppCompatActivity {
-    TextView h1,h2,h3,h4,h5;
     public static String pos ;
     ListView lista1;
     private ArrayList<Car> myAutos=new ArrayList<>();
@@ -29,7 +29,6 @@ public class CONSULTActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consult);
         lista1 = findViewById(R.id.idListView);
-        String cadena = "";
         show();
 
     }
@@ -52,6 +51,8 @@ public class CONSULTActivity extends AppCompatActivity {
         DBManager.consultCars(this,myAutos);
 
         ArrayAdapter<Car> adapter = new MyListAdapter();
+
+        lista1.addHeaderView(new View(this));
         lista1.setAdapter(adapter);
     }
     public void clientConsult(){
@@ -73,18 +74,26 @@ public class CONSULTActivity extends AppCompatActivity {
 
             Car CurrentAuto=myAutos.get(Position);
 
+            System.out.println(CurrentAuto.plate);
+            System.out.println(CurrentAuto.brand);
+            System.out.println(CurrentAuto.model);
+            System.out.println(CurrentAuto.year);
+            System.out.println(CurrentAuto.cvclient);
 
-            TextView lblPlaca= findViewById(R.id.lblPlaca);
+            TextView lblPlaca = itemView.findViewById(R.id.lblPlaca);
             lblPlaca.setText(CurrentAuto.getPlate());
 
-            TextView lblModelo= findViewById(R.id.lblModelo);
+            TextView lblModelo= itemView.findViewById(R.id.lblModelo);
             lblModelo.setText(CurrentAuto.getModel());
 
-            TextView lblMarca= findViewById(R.id.lblMarca);
+            TextView lblMarca= itemView.findViewById(R.id.lblMarca);
             lblMarca.setText(CurrentAuto.getBrand());
 
-            TextView lblAño= findViewById(R.id.lblYear);
-            lblAño.setText(CurrentAuto.getYear());
+            TextView lblAño= itemView.findViewById(R.id.lblYear);
+            lblAño.setText(String.valueOf(CurrentAuto.getYear()));
+
+            TextView lblCvc= itemView.findViewById(R.id.lblcvc);
+            lblCvc.setText(String.valueOf(CurrentAuto.getCvclient()));
 
 
             return itemView;
