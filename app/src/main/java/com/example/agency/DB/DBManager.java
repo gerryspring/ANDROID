@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.agency.model.Car;
+
+import java.util.ArrayList;
+
 public class DBManager {
   static  public DATABase Connection;
   static  public SQLiteDatabase DB;
@@ -47,7 +51,7 @@ public class DBManager {
         return true;
     }
 
-    public static String consultCars(AppCompatActivity context){
+    public static void consultCars(AppCompatActivity context, ArrayList<Car> array){
         String cadena;
 
         cadena = "SELECT * FROM AUTOS ORDER BY PLATE";
@@ -57,7 +61,7 @@ public class DBManager {
             alertDialog.setTitle("Recuperando ");
             alertDialog.setMessage("NO HAY AUTOS REGISTRADOS");
             alertDialog.show();
-            return null;
+            return;
         }
 
         String cars = "",plate,brand,model;
@@ -70,9 +74,9 @@ public class DBManager {
             year = c.getInt(3);
             cvclient = c.getInt(4);
 
-            cars += plate+"\t"+brand+"\t"+model+"\t"+year+"\t"+cvclient+"\n";
+            array.add(new Car(plate,brand,model,year,cvclient));
+           // cars += plate+"\t"+brand+"\t"+model+"\t"+year+"\t"+cvclient+"\n";
         }
-    return cars;
     }
 
     public static boolean createClient(int id,String name,String state,String city,String colony,AppCompatActivity context){
